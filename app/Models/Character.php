@@ -18,4 +18,20 @@ class Character extends Model
         'nickname',
         'portrayed',
     ];
+
+    /**
+     * связь с цитатами
+     */
+    public function quotes()
+    {
+        return $this->hasMany(Quote::class);
+    }
+
+    /**
+     * Связь с Эпизодами Многие-ко-многим
+     */
+    public function episodes()
+    {
+        return $this->belongsToMany(Episode::class);
+    }
 }

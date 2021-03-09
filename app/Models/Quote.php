@@ -15,4 +15,22 @@ class Quote extends Model
         'character_id',
         'episode_id',
     ];
+
+    //protected $primaryKey = 'id';
+
+    /**
+     * Связь цитаты с эпизодом Многие-к-одному
+     */
+    public function episode()
+    {
+        return $this->belongsTo(Episode::class);
+    }
+
+    /**
+     * связь с персонажем
+     */
+    public function character()
+    {
+        return $this->belongsTo(Character::class);
+    }
 }

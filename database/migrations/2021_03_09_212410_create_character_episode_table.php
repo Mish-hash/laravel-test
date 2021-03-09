@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEpisodeCharacterTable extends Migration
+class CreateCharacterEpisodeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateEpisodeCharacterTable extends Migration
      */
     public function up()
     {
-        Schema::create('episode_character', function (Blueprint $table) {
+        Schema::create('character_episode', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('episode_id')->constrained();
-            $table->foreignId('character_id')->constrained();
+            $table->foreignId('episode_id');
+            $table->foreignId('character_id');
 
 
             $table->timestamps();
@@ -31,6 +31,6 @@ class CreateEpisodeCharacterTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('episode_character');
+        Schema::dropIfExists('character_episode');
     }
 }
