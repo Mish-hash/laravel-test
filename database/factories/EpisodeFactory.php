@@ -22,7 +22,8 @@ class EpisodeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->sentence(4),
+            'air_date' => $this->faker->dateTimeBetween('-13 years', '-7 years'),
         ];
     }
 }
