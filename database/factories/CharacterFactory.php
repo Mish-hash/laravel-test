@@ -21,8 +21,18 @@ class CharacterFactory extends Factory
      */
     public function definition()
     {
+        $nb = rand(1, 5);
+        $occupations = $this->faker->words($nb);
+
+        $img = $this->faker->url . $this->faker->words(1, true) . '.png';
+
         return [
-            //
+            'name' => $this->faker->name,
+            'birthday' => $this->faker->dateTimeBetween('-65 years', '-18 years'),
+            'occupations' => json_encode($occupations),
+            'img' => $img,
+            'nickname' => $this->faker->firstName,
+            'portrayed' => $this->faker->name
         ];
     }
 }
