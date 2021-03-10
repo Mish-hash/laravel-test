@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\EpisodeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::name('api.')->group(function(){
+    Route::resource('episodes', EpisodeController::class)
+            ->only('index', 'show')
+            ->names('episodes');
 });
